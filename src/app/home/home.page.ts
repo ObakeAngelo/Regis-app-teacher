@@ -1,24 +1,44 @@
-import { Component } from '@angular/core';
-import { RefresherCustomEvent } from '@ionic/angular';
-
-import { DataService, Message } from '../services/data.service';
+import { Component, OnInit } from '@angular/core';
+import { AuthenticationService } from '../services/authentication.service';
+import { Router } from '@angular/router';
+import { DataService } from '../services/data.service';
 
 @Component({
   selector: 'app-home',
-  templateUrl: 'home.page.html',
-  styleUrls: ['home.page.scss'],
+  templateUrl: './home.page.html',
+  styleUrls: ['./home.page.scss'],
 })
-export class HomePage {
-  constructor(private data: DataService) { }
+export class HomePage implements OnInit {
+  teacherId: number = 0;
+  lessonList: any = [];
 
-  refresh(ev: any) {
-    setTimeout(() => {
-      (ev as RefresherCustomEvent).detail.complete();
-    }, 3000);
+  constructor(
+    private authService: AuthenticationService,
+    private dataService: DataService,
+    private router: Router
+  ) {}
+
+  ngOnInit() {}
+
+  ionViewWillEnter() {
+    this.teacherId = this.authService.getTeacherId();
+    this.dataService
+      .getLessonsByTeacher(this.teacherId)
+      .subscribe((lessons) => {
+        console.log(lessons);
+        this.lessonList = lessons;
+      });
   }
 
-  getMessages(): Message[] {
-    return this.data.getMessages();
+  logout() {
+    this.authService.logout();
   }
 
+  createLesson() {
+    this.router.navigate(['/lesson']);
+  }
+
+  goToLessonDetail(id: number) {
+    this.router.navigate(['/lesson-detail', id]);
+  }
 }

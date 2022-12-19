@@ -1,0 +1,103 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "email": "profesor.uno@duoc.cl",
+      "name": "profesor uno uno",
+      "password": "12345",
+      "rol": "profesor",
+      "token": "profesor.uno.eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9"
+    },
+    {
+      "id": 2,
+      "email": "profesor.dos@duoc.cl",
+      "name": "profesor dos dos",
+      "password": "12345",
+      "rol": "profesor",
+      "token": "profesor.dos.eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9"
+    },
+    {
+      "id": 3,
+      "email": "alumno.uno@duoc.cl",
+      "name": "alumno uno uno",
+      "password": "12345",
+      "rol": "alumno",
+      "token": "alumno.uno.eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9"
+    },
+    {
+      "id": 4,
+      "email": "alumno.dos@duoc.cl",
+      "name": "alumno dos dos",
+      "password": "12345",
+      "rol": "alumno",
+      "token": "alumno.dos.eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9"
+    }
+  ],
+  "lessons": [
+    {
+      "id": 1,
+      "name": "Matematicas",
+      "description": "Matematicas",
+      "teacher": 1,
+      "date": "18/12/2022"
+    },
+    {
+      "name": "Lenguaje",
+      "description": "Lenguaje",
+      "teacher": 1,
+      "date": "10/10/2022",
+      "id": 2
+    },
+    {
+      "name": "historia",
+      "description": "historia",
+      "teacher": 1,
+      "date": "12/12/2022",
+      "id": 3
+    },
+    {
+      "name": "Matematicas 3",
+      "description": "Matematicas 3",
+      "teacher": 2,
+      "date": "12/12/2022",
+      "id": 4
+    }
+  ],
+  "lesson_users": [
+    {
+      "id": 1,
+      "student": 3,
+      "name": "alumno uno uno",
+      "lesson": 1,
+      "date": "18/12/2022"
+    },
+    {
+      "student": 3,
+      "lesson": 2,
+      "name": "alumno uno uno",
+      "date": "18/12/2022, 05:01:02",
+      "id": 2
+    },
+    {
+      "student": 4,
+      "lesson": 2,
+      "name": "alumno dos dos",
+      "date": "18/12/2022, 05:06:02",
+      "id": 3
+    },
+    {
+      "student": 4,
+      "lesson": 1,
+      "name": "alumno dos dos",
+      "date": "18/12/2022, 05:06:08",
+      "id": 4
+    },
+    {
+      "student": 3,
+      "lesson": 3,
+      "name": "alumno uno uno",
+      "date": "18/12/2022, 13:16:30",
+      "id": 5
+    }
+  ]
+}
